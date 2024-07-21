@@ -36,14 +36,14 @@ public:
             depth_ = parent_->depth_ + 1;
         }
     }
-    Node * parent()
-    {
-        return parent_;
-    }
-    // Node * parent() const
+    // Node * parent()
     // {
     //     return parent_;
     // }
+    Node * parent() const
+    {
+        return parent_;
+    }
     Node * child_placement(Ball * x);
     void insert();
     void check_colision();
@@ -59,7 +59,7 @@ public:
     {
         return has_children;
     }
-    int obj_size()
+    int obj_size() const
     {
         return objects_.size();
     }
@@ -77,8 +77,12 @@ public:
         objects_.resize(0);
     }
     void collide();
+    int depth()
+    {
+        return depth_ ;
+    }
     
-private:
+//private:
     int minx, maxx, miny, maxy;
     std::vector< Ball * > objects_;
     bool has_children;

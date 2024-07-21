@@ -1,0 +1,59 @@
+std::list< Node * >::iterator q = p;
+            
+            ++q;
+            // for (int i = 0; i < 3; ++i)
+            // {
+            //     std::list< Node * >::iterator r;
+            //     // std::cout << "baby dont leave me " << ((*q)->parent() == NULL) << " baby i love you"  <<std::endl;
+            //     while ((*q)->parent_ != parent)
+            //     {
+            //         ++q;
+            //         // std::cout << "baby dont leave me " << ((*q)->parent() == NULL) << " baby i love you"  <<std::endl;
+            //     }
+            //     r = q;
+            //     r++;
+            //     leafs_.erase(q);
+            //     q = r;
+                
+            // }
+            while (q != leafs_.end() && (*q)->parent() != parent)
+                q++;
+            if (q == leafs_.end())
+            {
+                q = p;
+                
+                while ()
+            }
+            std::list< Node * >::iterator r = q;
+            
+            ++r;
+            while (r != leafs_.end() && (*r)->parent() != parent)
+                r++;
+            std::list< Node * >::iterator s = r;
+            ++s;
+            while (s != leafs_.end() && (*s)->parent() != parent)
+                s++;
+            std::cout << (*q == *r) << ' ' << (*q == *s) << ' '
+                     << (*r == *s) << std::endl;
+            std::cout << (q == leafs_.end()) << '\n';
+            std::cout << "child 1: " << ((*q)->parent() == parent) << std::endl;
+            leafs_.erase(q);
+            std::cout << (r == leafs_.end()) << '\n';
+            std::cout << "child 2: " << ((*r)->parent() == parent) << std::endl;
+            leafs_.erase(r);
+            std::cout << (s == leafs_.end()) << '\n';
+            std::cout << "child 3: " << ((*s)->parent() == parent) << std::endl;
+            //std::cout << true << ' ' << false<< std::endl;
+            leafs_.erase(s);
+            leafs_.insert(p, parent);
+            q = p;
+            --q;
+            
+            std::cout << "parent: " << (*q == parent) << std::endl;
+            //std::cout << (* == parent) << std::endl;
+            parent->delete_children();
+            parent->remove();
+            leafs_.erase(p);
+            //std::cout << (*q == parent) << std::endl;
+            p = q;
+            std::cout << (*q)->has_children << std::endl;

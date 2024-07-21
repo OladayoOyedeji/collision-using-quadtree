@@ -7,7 +7,7 @@
 /* const int H = 480; */
 
 
-const int W = 1240;
-const int H = 800;
+const int W = 1540;
+const int H = 865;
 #endif
 

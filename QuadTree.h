@@ -13,6 +13,12 @@ public:
         
         leafs_.push_front(root_);
     }
+    ~QuadTree()
+    {
+        root_->delete_children();
+        delete root_;
+        
+    }
     void run();
     void insert_object(Ball *);
     void draw();

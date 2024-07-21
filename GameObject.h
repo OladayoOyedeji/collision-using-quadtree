@@ -12,12 +12,12 @@ public:
     Ball()
     {}
     Ball(int x, int y)
-        : radius_(2), dx(rand() % 4 - 1),
-          dy(rand() % 4 + 1), x_(x), y_(y), r_(0), b_(200), g_(0)
+        : radius_(2), dx(rand() % 5 + 1),
+          dy(rand() % 5 + 1), x_(x), y_(y), r_(0), b_(200), g_(0)
     {}
     void draw()
     {
-        surface_->put_rect(x_, y_, 3, 3, 200, 0, 0);
+        surface_->put_circle(x_, y_, radius_, 200, 0, 0);
     }
     void move()
     {
