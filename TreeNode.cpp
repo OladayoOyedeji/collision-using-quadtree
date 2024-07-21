@@ -171,6 +171,14 @@ void Node::collide()
                 // objects_[j]->dy = rand() % 10 - 5;
                 objects_[j]->dx *= -1;
                 objects_[j]->dy *= -1;
+                if (eq(objects_[i]->color, RED) && eq(objects_[j]->color, BLUE))
+                {
+                    objects_[i]->color = BLUE;
+                }
+                else if (eq(objects_[i]->color, BLUE) && eq(objects_[j]->color, RED))
+                {
+                    objects_[i]->color = RED;
+                }
             }
         }
     }

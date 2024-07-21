@@ -13,11 +13,14 @@ public:
     {}
     Ball(int x, int y)
         : radius_(2), dx(rand() % 5 + 1),
-          dy(rand() % 5 + 1), x_(x), y_(y), r_(0), b_(200), g_(0)
+          dy(rand() % 5 + 1), x_(x), y_(y),
+          r_(0), b_(200), g_(0),
+          color(RED)
     {}
     void draw()
     {
-        surface_->put_circle(x_, y_, radius_, 200, 0, 0);
+        surface_->put_circle(x_, y_, radius_, color);
+        //surface_->put_circle(x_, y_, radius_, color.r, g_, b_);
     }
     void move()
     {
@@ -42,7 +45,14 @@ public:
     static void set_surface(Surface *);
 //private:
     int radius_, x_, y_, r_, b_, g_, dx, dy;
+    Color color;
     static Surface * surface_;
 };
+
+inline
+bool eq(const Color & c1, const Color c2)
+{
+    return (c1.r == c2.r && c1.g == c2.g && c1.b == c2.b);
+}
 
 #endif

@@ -13,25 +13,37 @@ bool Ball::collide(const Ball * ball) const
 void Ball::run()
 {
     move();
-    if (x_ < 0)
+    if (x_ < 0 || x_ > W || y_ < 0 || y_ > H)
     {
-        x_ = 0;
-        dx *= -1;
-    }
-    if (x_ > W)
-    {
-        x_ = W;
-        dx *= -1;
-    }
-    if (y_ < 0)
-    {
-        y_ = 0;
-        dy *= -1;
-    }
-    if (y_ > H)
-    {
-        y_ = H;
-        dy *= -1;
+        if (x_ < 0)
+        {
+            x_ = 0;
+            dx *= -1;
+        }
+        if (x_ > W)
+        {
+            x_ = W;
+            dx *= -1;
+        }
+        if (y_ < 0)
+        {
+            y_ = 0;
+            dy *= -1;
+        }
+        if (y_ > H)
+        {
+            y_ = H;
+            dy *= -1;
+        }
+        if (eq(color, BLUE))
+        {
+            color = RED;
+        }
+        else
+        {
+            color = BLUE;
+        }
+        //std::cout << color.r << std::endl;
     }
 }
 
