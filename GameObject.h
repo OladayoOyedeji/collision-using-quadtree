@@ -12,7 +12,7 @@ public:
     Ball()
     {}
     Ball(int x, int y)
-        : radius_(2), dx(rand() % 5 + 1),
+        : radius_(10), dx(rand() % 5 + 1),
           dy(rand() % 5 + 1), x_(x), y_(y),
           r_(0), b_(200), g_(0),
           color(RED)
@@ -45,6 +45,7 @@ public:
     static void set_surface(Surface *);
 //private:
     int radius_, x_, y_, r_, b_, g_, dx, dy;
+    //int vector_;
     Color color;
     static Surface * surface_;
 };

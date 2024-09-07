@@ -167,18 +167,24 @@ void Node::collide()
         {
             if(i != j && objects_[i]->collide(objects_[j]))
             {
+                std::cout << i << "colide\n";
                 // objects_[j]->dx = rand() % 10 - 5;
                 // objects_[j]->dy = rand() % 10 - 5;
-                objects_[j]->dx *= -1;
-                objects_[j]->dy *= -1;
-                if (eq(objects_[i]->color, RED) && eq(objects_[j]->color, BLUE))
-                {
-                    objects_[i]->color = BLUE;
-                }
-                else if (eq(objects_[i]->color, BLUE) && eq(objects_[j]->color, RED))
-                {
-                    objects_[i]->color = RED;
-                }
+                int t_x = objects_[j]->dx;
+                int t_y = objects_[j]->dy;
+                objects_[j]->dx = objects_[i]->dx;
+                objects_[j]->dy = objects_[i]->dy;
+
+                objects_[i]->dx = t_x;
+                objects_[i]->dy = t_y;
+                // if (eq(objects_[i]->color, RED) && eq(objects_[j]->color, BLUE))
+                // {
+                //     objects_[i]->color = BLUE;
+                // }
+                // else if (eq(objects_[i]->color, BLUE) && eq(objects_[j]->color, RED))
+                // {
+                //     objects_[i]->color = RED;
+                // }
             }
         }
     }
