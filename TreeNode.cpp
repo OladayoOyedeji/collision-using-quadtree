@@ -5,13 +5,13 @@ Node * Node::child_placement(Ball * ball)
     Node * placement = NULL;
     if (!has_children)
     {
-    for (int i = 0; i < objects_.size(); ++i)
-    {
-        if (ball == objects_[i])
+        for (int i = 0; i < objects_.size(); ++i)
         {
-            return NULL;
+            if (ball == objects_[i])
+            {
+                return NULL;
+            }
         }
-    }
     }
     if (ball->x() >= minx && ball->x() <= maxx
         && ball->y() >= miny && ball->y() <= maxy)
@@ -161,13 +161,16 @@ void Node::delete_objects()
 
 void Node::collide()
 {
+    int col;
     for (int i = 0; i < objects_.size(); ++i)
     {
         for (int j = 0; j < objects_.size(); ++j)
         {
-            if(i != j && objects_[i]->collide(objects_[j]))
+            if(i != j && !(objects_[i]->check_()) && !(objects_[j]->check_()) && objects_[i]->collide(objects_[j]))
             {
-                std::cout << i << "colide\n";
+                objects_[j]->check();
+                objects_[i]->check();
+                //std::cout << i << "colide\n";
                 // objects_[j]->dx = rand() % 10 - 5;
                 // objects_[j]->dy = rand() % 10 - 5;
                 int t_x = objects_[j]->dx;
@@ -177,14 +180,40 @@ void Node::collide()
 
                 objects_[i]->dx = t_x;
                 objects_[i]->dy = t_y;
-                // if (eq(objects_[i]->color, RED) && eq(objects_[j]->color, BLUE))
-                // {
-                //     objects_[i]->color = BLUE;
-                // }
-                // else if (eq(objects_[i]->color, BLUE) && eq(objects_[j]->color, RED))
-                // {
-                //     objects_[i]->color = RED;
-                // }
+                int count = 0;
+                while(objects_[i]->collide(objects_[j]))
+                {
+                    objects_[i]->move();
+                    objects_[j]->move();
+                    if (count > 2)
+                    {
+                        objects_[j]->dx = rand() % 10 - 5;
+                        objects_[j]->dy = rand() % 10 - 5;
+                        if (objects_[j]->dx == 0 && objects_[j]->dx == 0)
+                        {
+                            objects_[j]->dx = rand() % 5 - 5;
+                            objects_[j]->dy = rand() % 5 - 5;
+                        }
+                        objects_[i]->dx = rand() % 10 - 5;
+                        objects_[i]->dy = rand() % 10 - 5;
+                        if (objects_[i]->dx == 0 && objects_[i]->dx == 0)
+                        {
+                            objects_[i]->dx = rand() % 5 - 5;
+                            objects_[i]->dy = rand() % 5 - 5;
+                        }
+                        break;
+                    }
+                    // std::cout << 'i' << std::endl;
+                    count++;
+                }
+                if (eq(objects_[i]->color, RED) && eq(objects_[j]->color, BLUE))
+                {
+                    objects_[i]->color = BLUE;
+                }
+                else if (eq(objects_[i]->color, BLUE) && eq(objects_[j]->color, RED))
+                {
+                    objects_[i]->color = RED;
+                }
             }
         }
     }

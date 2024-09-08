@@ -4,10 +4,16 @@ Surface * Ball::surface_ = NULL;
 
 bool Ball::collide(const Ball * ball) const
 {
+    
     int distx = ball->x() - x_;
     int disty = ball->y() - y_;
     int dist = sqrt(distx * distx + disty * disty);
     return (dist <= ball->rad() + radius_);
+}
+
+void Ball::check()
+{
+    checked_ = !checked_;
 }
 
 void Ball::run()

@@ -12,15 +12,16 @@ public:
     Ball()
     {}
     Ball(int x, int y)
-        : radius_(10), dx(rand() % 5 + 1),
+        : radius_(3), dx(rand() % 5 + 1),
           dy(rand() % 5 + 1), x_(x), y_(y),
           r_(0), b_(200), g_(0),
-          color(RED)
+          color(RED), checked_(false)
     {}
     void draw()
     {
+        checked_ = false;
         surface_->put_circle(x_, y_, radius_, color);
-        //surface_->put_circle(x_, y_, radius_, color.r, g_, b_);
+        surface_->put_unfilled_circle(x_, y_, radius_, BLACK);
     }
     void move()
     {
@@ -40,6 +41,11 @@ public:
     }
 
     bool collide(const Ball * ball) const;
+    bool check_()
+    {
+        return checked_;
+    }
+    void check();
 
     void run();
     static void set_surface(Surface *);
@@ -47,6 +53,7 @@ public:
     int radius_, x_, y_, r_, b_, g_, dx, dy;
     //int vector_;
     Color color;
+    bool checked_;
     static Surface * surface_;
 };
 
