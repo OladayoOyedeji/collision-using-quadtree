@@ -12,7 +12,7 @@ public:
     Ball()
     {}
     Ball(int x, int y)
-        : radius_(3), dx(rand() % 5 + 1),
+        : radius_(5), dx(rand() % 5 + 1),
           dy(rand() % 5 + 1), x_(x), y_(y),
           r_(0), b_(200), g_(0),
           color(RED), checked_(false)

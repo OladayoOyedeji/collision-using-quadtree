@@ -176,10 +176,55 @@ void Node::collide()
                 int t_x = objects_[j]->dx;
                 int t_y = objects_[j]->dy;
                 objects_[j]->dx = objects_[i]->dx;
-                objects_[j]->dy = objects_[i]->dy;
+                // if (objects_[j]->dx + 3 > 7)
+                // {
+                    
+                //     objects_[j]->dx -= rand() % 3 + 1;
+                //     //if (objects_[j]->dx == 0) --(objects_[j]->dx);
+                // }
+                // else
+                // {
+                //     objects_[j]->dx += rand() % 3 + 1;
+                //     //if (objects_[j]->dx == 0) ++(objects_[j]->dx);
+                // }
 
+                objects_[j]->dy = objects_[i]->dy;
+                // if (objects_[j]->dy + 3 > 7)
+                // {
+                //     objects_[j]->dy -= rand() % 3 + 1;
+                //     //if (objects_[j]->dy == 0) --(objects_[j]->dy);
+                // }
+                // else
+                // {
+                //     objects_[j]->dy += rand() % 3 + 1;
+                //     //if (objects_[j]->dy == 0) ++(objects_[j]->dy);
+                // }
+                
                 objects_[i]->dx = t_x;
                 objects_[i]->dy = t_y;
+                
+                // if (objects_[i]->dx + 3 > 7)
+                // {
+                //     objects_[i]->dx -= rand() % 3 + 1;
+                //     //if (objects_[i]->dx == 0) --(objects_[i]->dx);
+                // }
+                // else
+                // {
+                //     objects_[i]->dx += rand() % 3 + 1;
+                //     //if (objects_[i]->dx == 0) ++(objects_[i]->dx);
+                // }
+
+                // if (objects_[i]->dy + 3 > 7)
+                // {
+                //     objects_[i]->dy -= rand() % 3 + 1;
+                //     //if (objects_[i]->dy == 0) --(objects_[i]->dy);
+                // }
+                // else
+                // {
+                //     objects_[i]->dy += rand() % 3 + 1;
+                //     //if (objects_[i]->dy == 0) ++(objects_[i]->dy);
+                // }
+                
                 int count = 0;
                 while(objects_[i]->collide(objects_[j]))
                 {
