@@ -44,6 +44,9 @@ public:
     {
         return parent_;
     }
+    ~Node()
+    {
+    }
     Node * child_placement(Ball * x);
     void insert();
     void check_colision();
