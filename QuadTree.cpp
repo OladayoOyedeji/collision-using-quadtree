@@ -112,10 +112,10 @@ void QuadTree::run()
     //std::cout << leafs_.size() << std::endl;
 
     //for (int i = 0; i < leafs_.size)
-    for (int i = 0; i < objects_.size(); ++i)
-    {
-        objects_[i]->run();
-    } 
+    // for (int i = 0; i < objects_.size(); ++i)
+    // {
+    //     objects_[i]->run();
+    // } 
     //std::cout << "no baby\n"; oj dk j   jbdkj jkd  dxj dbi gj lfkn e nou og ojdn jd ogjb dj ogu b 
 }
 

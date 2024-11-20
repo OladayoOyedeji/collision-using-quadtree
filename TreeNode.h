@@ -46,6 +46,7 @@ public:
     }
     ~Node()
     {
+        delete_children();
     }
     Node * child_placement(Ball * x);
     void insert();
