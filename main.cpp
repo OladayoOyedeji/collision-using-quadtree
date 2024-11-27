@@ -23,8 +23,7 @@ int main(int argc, char * argv[])
     }
     
     bool s_pressed = false;
-    // rand() % 4
-     bool r_pressed = false;
+    bool r_pressed = false;
 
     int RATE = 1000 / 60;
     bool quadtree = true;
@@ -37,9 +36,6 @@ int main(int argc, char * argv[])
         int START = getTicks();
         if (!s_pressed && keypressed[SPACE])
         {
-            // Ball * ball = new Ball(rand() % W, rand() % H);
-            // balls.push_back(ball);
-            // q.objects_.push_back(ball);
             quadtree = !quadtree;
             s_pressed = true;
         }
@@ -47,15 +43,6 @@ int main(int argc, char * argv[])
         {
             s_pressed = false;
         }
-        // if (!r_pressed && keypressed[SDLK_r])
-        // {
-        //     q.objects_.push_back(new Ball(rand() % W, rand() % H));
-        //     s_pressed = true;
-        // }
-        // if (!keypressed[SPACE])
-        // {
-        //     s_pressed = false;
-        // }
         if (quadtree)
             q.run();
         else
